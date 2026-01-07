@@ -26,6 +26,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 /* ============================================
@@ -66,6 +67,9 @@ p {
     line-height: 1.6;
     color: #B8BDD9;
     margin-bottom: 16px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 strong {
@@ -97,10 +101,11 @@ a:focus {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 24px;
+    position: relative;
 }
 
 .content {
-    padding: 96px 0;
+    padding: 90px 0px 0px 0px;
 }
 
 /* ============================================
@@ -155,7 +160,7 @@ a:focus {
             #0A0E1C
         );
     color: #FFFFFF;
-    padding: 48px 24px;
+    padding: 70px 24px 70px 24px;
     text-align: center;
     margin: 0 -24px -18px -24px;
     position: relative;
@@ -166,6 +171,7 @@ a:focus {
 
 
 .header .logo {
+    display: none;
     max-width: 200px;
     height: auto;
     margin-bottom: 32px;
@@ -271,6 +277,9 @@ a:focus {
 
 .card p {
     color: #B8BDD9;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 /* ============================================
@@ -326,7 +335,7 @@ a:focus {
 
 .btn-secondary:hover {
     border-color: #FF8A3D;
-    color: #FF8A3D;
+    color: #FFFFFF;
 }
 
 .btn-group {
@@ -369,6 +378,9 @@ a:focus {
     font-size: 15px;
     line-height: 1.6;
     color: #B8BDD9;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 .alert-warning {
@@ -586,6 +598,14 @@ a:focus {
     padding-left: 0;
 }
 
+.checklist li > *:not(.checklist-icon) {
+    min-width: 0;
+    flex: 1;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+}
+
 .checklist-icon {
     display: flex;
     align-items: center;
@@ -762,7 +782,7 @@ a:focus {
     background: #12142A;
     border-top: 1px solid rgba(255,255,255,0.06);
     padding: 48px 24px;
-    margin: 96px -24px 0 -24px;
+    margin: 36px -24px 0 -24px;
     text-align: center;
 }
 
@@ -896,6 +916,24 @@ a:focus {
         padding: 20px;
     }
 
+    /* Checklist mobile */
+    .checklist li {
+        min-width: 0;
+    }
+
+    .checklist li > *:not(.checklist-icon) {
+        min-width: 0;
+        flex: 1;
+        max-width: 100%;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        white-space: normal;
+    }
+
+    .checklist li strong {
+        display: inline;
+    }
+
     /* Contacts grid mobile */
     .contacts-grid {
         grid-template-columns: 1fr;
@@ -937,7 +975,7 @@ a:focus {
     /* Footer mobile */
     .footer {
         padding: 32px 16px;
-        margin: 64px -16px 0 -16px;
+        margin: 4px -16px 0 -16px;
     }
 
     /* Welcome box mobile */
@@ -998,4 +1036,137 @@ select:focus {
 
 .skip-link:focus {
     top: 0;
+}
+
+/* ============================================
+   21. WHATSAPP FLOATING BUTTON
+   ============================================ */
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 99999;
+    animation: fadeInUp 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    display: block;
+    visibility: visible;
+    opacity: 1;
+}
+
+.whatsapp-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: #FFFFFF;
+    padding: 14px 20px;
+    border-radius: 50px;
+    box-shadow: 
+        0 8px 24px rgba(37, 211, 102, 0.4),
+        0 4px 12px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+    max-width: 320px;
+}
+
+.whatsapp-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 12px 32px rgba(37, 211, 102, 0.5),
+        0 6px 16px rgba(0, 0, 0, 0.3);
+    color: #FFFFFF;
+}
+
+.whatsapp-icon {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.whatsapp-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.whatsapp-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #FFFFFF;
+    line-height: 1.2;
+}
+
+.whatsapp-subtitle {
+    font-size: 12px;
+    font-weight: 400;
+    color: #FFFFFF;
+    opacity: 0.95;
+    line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+    .whatsapp-float {
+        position: fixed !important;
+        bottom: 0 !important;
+        right: 0 !important;
+        left: 0 !important;
+        top: auto !important;
+        z-index: 99999 !important;
+        width: 100% !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.2);
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .whatsapp-link {
+        padding: 14px 20px !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        border-radius: 0 !important;
+        justify-content: center !important;
+        box-shadow: none !important;
+        display: flex !important;
+        background: linear-gradient(135deg, #25D366, #128C7E) !important;
+        margin: 0 !important;
+    }
+
+    .whatsapp-link:hover {
+        transform: none !important;
+        box-shadow: none !important;
+    }
+
+    .whatsapp-icon {
+        width: 36px !important;
+        height: 36px !important;
+        display: block !important;
+    }
+
+    .whatsapp-text {
+        display: flex !important;
+    }
+
+    .whatsapp-title {
+        font-size: 13px !important;
+        display: block !important;
+    }
+
+    .whatsapp-subtitle {
+        font-size: 11px !important;
+        display: block !important;
+    }
+
+    /* Ajouter un padding-bottom au footer pour éviter qu'il soit caché */
+    .footer {
+        padding-bottom: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .content {
+        padding: 64px 0 0px 0;
+    }
 }
