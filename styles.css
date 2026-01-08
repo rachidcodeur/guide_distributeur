@@ -309,6 +309,7 @@ a:focus {
 .btn-primary:hover {
     transform: translateY(-1px);
     box-shadow: 0 14px 40px rgba(255,138,61,0.35);
+    color: #FFFFFF;
 }
 
 .btn-primary:focus {
@@ -325,6 +326,7 @@ a:focus {
 .btn-success:hover {
     transform: translateY(-1px);
     box-shadow: 0 14px 40px rgba(255,138,61,0.35);
+    color: #FFFFFF;
 }
 
 .btn-secondary {
@@ -740,6 +742,78 @@ a:focus {
 }
 
 /* ============================================
+   15.5. CONSEILS PRATIQUES LAYOUT
+   ============================================ */
+
+.conseils-layout {
+    display: grid;
+    grid-template-columns: 65% 35%;
+    gap: 32px;
+    align-items: stretch;
+    margin: 32px 0;
+}
+
+.conseils-image-main {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: 16px;
+}
+
+.conseils-main-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.06);
+    box-shadow: 
+        0 4px 20px rgba(0,0,0,0.4),
+        inset 0 1px 0 rgba(255,255,255,0.03);
+}
+
+.conseils-days-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    height: 100%;
+}
+
+.conseils-day-item {
+    text-align: center;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+}
+
+.conseils-day-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+}
+
+.conseils-day-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #FF8A3D;
+    margin-bottom: 4px;
+}
+
+.conseils-day-image {
+    height: 200px;
+    width: auto;
+    object-fit: contain;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.06);
+    box-shadow: 
+        0 2px 10px rgba(0,0,0,0.3),
+        inset 0 1px 0 rgba(255,255,255,0.03);
+}
+
+/* ============================================
    15. FAQ
    ============================================ */
 
@@ -987,6 +1061,16 @@ a:focus {
     .sector-layout {
         grid-template-columns: 1fr;
         gap: 24px;
+    }
+
+    /* Conseils layout mobile */
+    .conseils-layout {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .conseils-days-container {
+        gap: 12px;
     }
 }
 
