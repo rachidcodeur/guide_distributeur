@@ -145,6 +145,7 @@
             videoId: 'NrHuRGNj-gY',
             playerVars: {
                 autoplay: 1,
+                mute: 1,
                 loop: 1,
                 playlist: 'NrHuRGNj-gY',
                 controls: 1,
@@ -152,8 +153,13 @@
             },
             events: {
                 onReady: function(event) {
-                    event.target.setVolume(50);
                     event.target.playVideo();
+                },
+                onStateChange: function(event) {
+                    if (event.data === YT.PlayerState.PLAYING) {
+                        event.target.unMute();
+                        event.target.setVolume(50);
+                    }
                 }
             }
         });
