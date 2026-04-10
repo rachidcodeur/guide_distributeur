@@ -20,7 +20,9 @@
             <span class="header-badge">📖 Version 2026</span>
             <!-- Image Guide -->
             <div class="hero-image-container">
-                <img src="public/image-guide.webp" alt="Guide du distributeur" class="hero-image">
+                <div class="video-wrapper">
+                    <div id="yt-player"></div>
+                </div>
             </div>
         </header>
 
@@ -133,15 +135,29 @@
         </footer>
     </div>
 
-    <!-- WhatsApp Floating Button -->
-    <div class="whatsapp-float">
-        <a href="https://wa.me/33626134523" target="_blank" rel="noopener noreferrer" class="whatsapp-link">
-            <img src="public/icone-whatsapp.webp" alt="WhatsApp" class="whatsapp-icon">
-            <div class="whatsapp-text">
-                <div class="whatsapp-title">Contactez-nous</div>
-                <div class="whatsapp-subtitle">Pour signer des anomalies<br>ou annoncer la fin de mission</div>
-            </div>
-        </a>
-    </div>
+<script>
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    document.head.appendChild(tag);
+
+    function onYouTubeIframeAPIReady() {
+        new YT.Player('yt-player', {
+            videoId: 'NrHuRGNj-gY',
+            playerVars: {
+                autoplay: 1,
+                loop: 1,
+                playlist: 'NrHuRGNj-gY',
+                controls: 1,
+                rel: 0
+            },
+            events: {
+                onReady: function(event) {
+                    event.target.setVolume(50);
+                    event.target.playVideo();
+                }
+            }
+        });
+    }
+</script>
 </body>
 </html>
